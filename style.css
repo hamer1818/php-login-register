@@ -1,0 +1,99 @@
+
+form{
+    display: flex;
+    flex-direction: column;
+    background: rgb(144, 138, 138);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px 20px;
+    margin-bottom: 10px;
+    width: flex;
+    height: 450px;
+    
+}
+
+td{
+    background: rgb(57, 57, 61);
+    width: 800px;
+    height: 580px;
+    padding-top: 20px;
+    border-radius: 15px;
+
+}
+
+hr{
+    width: 500px;
+    height: 1px;
+    background: rgb(18, 16, 16);
+    border: none;
+}
+h1{
+    text-align: center;
+    color: rgb(55, 55, 55);
+}
+h1:hover{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.inputAlani{
+    width: 450px;
+    height: 30px;
+    border: 1px solid rgb(79, 69, 69);
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* ortala */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: large;
+
+
+}
+.inputAlani:hover{
+    width: 450px;
+    height: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* ortala */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: large;
+    
+
+
+}
+.buton{
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    margin-top: 20px;
+    font-size: large;
+    background: #666666;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+}
+.buton:hover{
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    margin-top: 20px;
+    font-size: large;
+    background: #000000;
+    color: #fff;
+    border-radius: 5px;
+}
+table{
+    border-radius: 5px;
+
+}
