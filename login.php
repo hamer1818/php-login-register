@@ -1,12 +1,8 @@
 <?php
     require_once("db.php");
-
     $email = $_POST["email"];
     $_password = $_POST["password"];
-
-    $result       = mysqli_query($conn,"SELECT email, password FROM uyeler WHERE email = $email and pass = $_password ");
-    
-
+    $result       = mysqli_query($conn,"SELECT email, pass FROM users WHERE email = '$email' and pass = '$_password' ");
     if(mysqli_num_rows($result) > 0){
         echo "<script>alert('Giriş Başarılı')</script>";
         echo "email: " . $email . " - password: " . $_password . "<br>";
@@ -16,8 +12,5 @@
         echo "<script>alert('Giriş Başarısız')</script>";
         header("Refresh: 0; url=index.php");
     }
-
-
     mysqli_close($conn);
-    
 ?>

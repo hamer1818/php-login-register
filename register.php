@@ -1,10 +1,7 @@
 <?php
-
     require_once("db.php");
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    // eğer email ve şifre boş değilse ve email ve şifre veritabanında yoksa kaydedelim
     $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
     if (mysqli_num_rows($result) > 0) {
         echo "<script>alert('Bu email adresi zaten kayıtlı')</script>";
@@ -22,10 +19,5 @@
     
         }
     }
-
     mysqli_close($conn);
-
-
-
-    
 ?>
