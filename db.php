@@ -1,14 +1,14 @@
 <?php
 try {
+    $servername = "localhost";
+    $username   = "root";
+    $password   = "";
+    $dbname     = "kayit";
 
-    $VeritabaniBaglantisi   = new mysqli("localhost", "login", "123456", "login");
+    $conn   = mysqli_connect($servername, $username, $password, $dbname);
 
-} catch (PDOException $Hata) {
-    echo "<pre>";
-    echo $Hata->getMessage();    //bu alanı kapatın çünkü site hata yaparsa kullanıcılar hata değerini görmesin
-    echo "</pre>";
-    die();
+} catch (Exception $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
-
 
 ?>

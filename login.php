@@ -4,24 +4,20 @@
     $email = $_POST["email"];
     $_password = $_POST["password"];
 
-    $uyeSorgu       = $VeritabaniBaglantisi->query("SELECT email, password FROM uyeler WHERE email = $email , password = $_password ");
-    $eslesenUyeSayisi = $uyeSorgu->num_rows;
+    $result       = mysqli_query($conn,"SELECT email, password FROM uyeler WHERE email = $email and pass = $_password ");
+    
 
-    $veritabaniEmail    = $veritabanindanGelenUye["email"];
-    $veritabaniPassword = $veritabanindanGelenUye["password"];
-
-    $uyeSorgu->close();
-
-
-    if ($eslesenUyeSayisi>0) {
-        echo $veritabaniEmail;
-        echo "<br>";
-        echo $veritabaniPassword;
-    } else {
-        header("Refresh: 15; url=index.php");
+    if(mysqli_num_rows($result) > 0){
+        echo "<script>alert('Giriş Başarılı')</script>";
+        echo "email: " . $email . " - password: " . $_password . "<br>";
+        echo "10 saniye sonra anasayfaya yönlendirileceksiniz";
+        header("Refresh: 10; url=index.php");
+    }else{
+        echo "<script>alert('Giriş Başarısız')</script>";
+        header("Refresh: 0; url=index.php");
     }
 
 
-
+    mysqli_close($conn);
     
 ?>

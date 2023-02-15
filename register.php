@@ -4,18 +4,26 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $uyeSorgu       = $VeritabaniBaglantisi->query("INSERT INTO uyeler (email,password) VALUES ($email,$password)");
-    $uyeSorgu->close();
+    // eğer email ve şifre boş değilse ve email ve şifre veritabanında yoksa kaydedelim
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    if (mysqli_num_rows($result) > 0) {
+        echo "<script>alert('Bu email adresi zaten kayıtlı')</script>";
+        header("Refresh: 0; url=index.php");
+        exit;
+    }else{
 
-
-    if ($uyeSorgu) {
-        echo "Kayıt Başarılı";
-    } else {
-        echo "Kayıt Başarısız";
-        // 15 san sonra index.php ye yönlendir
-        header("Refresh: 15; url=index.php");
-
+        $result = mysqli_query($conn, "INSERT INTO users (email ,pass) VALUES ('$email','$password')");
+        if ($result) {
+            echo "<script>alert('Kayıt Başarılı')</script>";
+            header("Refresh: 0; url=index.php");
+        } else {
+            echo "<script>alert('Kayıt Başarısız')</script>";
+            header("Refresh: 0; url=index.php");
+    
+        }
     }
+
+    mysqli_close($conn);
 
 
 
